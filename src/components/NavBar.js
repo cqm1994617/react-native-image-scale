@@ -14,6 +14,7 @@ const styles = StyleSheet.create({
     paddingTop: Platform.OS === 'ios' ? 20 : 0,
     height: Platform.OS === 'ios' ? 65 : 50,
     borderBottomWidth: 1 / PixelRatio.get(),
+    backgroundColor: '#fff',
     borderBottomColor: '#ccc',
     flexDirection: 'row',
   },
