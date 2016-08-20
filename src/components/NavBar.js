@@ -51,7 +51,10 @@ export default class NavBar extends React.Component {
       return this.props.renderLeft();
     } else if (this.props.renderBack) {
       return (
-        <TouchableOpacity style={styles.container}>
+        <TouchableOpacity
+          style={styles.container}
+          onPress={() => console.log(this.context.navigator)}
+        >
           <Text>返回</Text>
         </TouchableOpacity>
       );
@@ -60,7 +63,6 @@ export default class NavBar extends React.Component {
   }
 
   render() {
-    console.log(this.refs);
     return (
       <View style={styles.navbar}>
         <View style={styles.slide}>{this.renderLeft()}</View>

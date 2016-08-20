@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   View,
   Text,
@@ -18,6 +18,16 @@ const list = [
 ];
 
 export default class App extends React.Component {
+  static childContextTypes = {
+    navigator: PropTypes.object,
+  };
+
+  getChildContext() {
+    return {
+      navigator: this.props.navigator,
+    };
+  }
+
   row() {
     return (
       <TouchableOpacity>
@@ -30,6 +40,7 @@ export default class App extends React.Component {
       <MainContainer>
         <NavBar
           title="Hello RN"
+          renderBack
         />
         <ScrollView>
           {list.map((z, i) => <ListRow key={i} res={z} />)}

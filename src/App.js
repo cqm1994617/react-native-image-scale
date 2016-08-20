@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { PropTypes } from 'react';
 import {
   View,
   Text,
   Navigator,
 } from 'react-native';
+
 import Main from './pages/Main';
+import dismissKeyboard from 'react-native/Libraries/Utilities/dismissKeyboard';
 
 const initRoute = {
   component: Main,
@@ -12,12 +14,11 @@ const initRoute = {
 
 export default class App extends React.Component {
 
-  configScene = () => {
+  configScene = (route) => {
     return Navigator.SceneConfigs.PushFromRight;
   };
 
   renderScene = (route, navigator) => {
-    console.log(route);
     const Component = route.component;
     return <Component {...route.params} navigator={navigator} />;
   };
